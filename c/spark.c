@@ -59,6 +59,7 @@ void spark(char *s) {
 	char *str;
 	char *saveptr;
 
+	int max = INT_MIN;
 	for (str = s; ; str = NULL) {
 		char *token = strtok_r(str, ",", &saveptr);
 		if (token == NULL) {
@@ -68,13 +69,8 @@ void spark(char *s) {
 		int d = atoi(token);
 
 		append(&a, d);
-	}
-
-	int max = INT_MIN;
-	for (int j = 0; j < a.len; j++) {
-		int d = a.data[j];
 		if (d > max) {
-			max = d;
+			 max = d;
 		}
 	}
 
